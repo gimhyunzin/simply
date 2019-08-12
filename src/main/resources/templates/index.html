@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Simply</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/index.css" th:attrappend="href='?v='+${#dates.format(#dates.createNow(), 'yyyyMMddHHmm')}"/>
+</head>
+<body>
+
+<hr/>
+
+<div class="container">
+
+    <h1>Convert Link</h1>
+    <div class="card-deck mb-3 text-center">
+        <div class="card mb-4 shadow-sm">
+            <div class="card-header">
+                <h4 class="my-0 font-weight-normal">Origin URL</h4>
+            </div>
+            <div class="card-body">
+                <h1 class="card-title pricing-card-title"><small class="text-muted">AS-IS</small></h1>
+                <ul class="list-unstyled mt-3 mb-4">
+                    <li><input type="text" class="bd-solid" id="fromData" name="url" placeholder="http://" /></li>
+                </ul>
+                <button type="button" class="btn btn-lg btn-primary" id="convertButton">변환하기</button>
+            </div>
+        </div>
+        <div class="card mb-4 shadow-sm">
+            <div class="card-header">
+                <h4 class="my-0 font-weight-normal">Simply URL</h4>
+            </div>
+            <div class="card-body">
+                <h1 class="card-title pricing-card-title"><small class="text-muted">TO-BE</small></h1>
+                <ul class="list-unstyled mt-3 mb-4">
+                    <li><input type="text" class="bd-dotted" id="toData" readonly /></li>
+                </ul>
+                <button type="button" class="btn btn-lg btn-outline-primary" id="copyButton">복사하기</button>
+            </div>
+        </div>
+    </div>
+
+    <hr/><hr/>
+
+    <h1>Simply Links</h1>
+    <div>
+        <table class="table table-lg table-striped">
+            <colgroup>
+                <col width="5%" />
+                <col width="55%" />
+                <col width="35%" />
+            </colgroup>
+            <thead>
+                <tr>
+                    <th>No.</th>
+                    <th>Origin URL</th>
+                    <th>Simply URL</th>
+                </tr>
+            </thead>
+            <tbody id="linksArea">
+                <tr>
+                    <td colspan="3" class="al-center">조회 결과가 존재하지 않습니다.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<hr/>
+
+<script src="/static/index.js" th:attrappend="src='?v='+${#dates.format(#dates.createNow(), 'yyyyMMddHHmm')}"></script>
+</body>
+</html>

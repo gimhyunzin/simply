@@ -1,0 +1,98 @@
+spring:
+  profiles:
+    active: local
+
+---
+spring:
+  profiles: local,default
+
+  mvc:
+    static-path-pattern: /static/**
+
+  thymeleaf:
+    cache: false
+
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:~/TEST_DB;AUTO_SERVER=TRUE
+
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: create-drop
+
+  h2:
+    console:
+      path: /db/h2console
+      enabled: true
+
+---
+spring:
+  profiles: dev
+
+  mvc:
+    static-path-pattern: /static/**
+
+  thymeleaf:
+    cache: false
+
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:~/TEST_DB;AUTO_SERVER=TRUE
+
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: create-drop
+
+  h2:
+    console:
+      path: /db/h2console
+      enabled: true
+
+---
+spring:
+  profiles: qa
+
+  mvc:
+    static-path-pattern: /static/**
+
+  thymeleaf:
+    cache: true
+
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:~/TEST_DB;AUTO_SERVER=TRUE
+
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: create-drop
+
+  h2:
+    console:
+      path: /db/h2console
+      enabled: false
+---
+spring:
+  profiles: prod
+
+  mvc:
+    static-path-pattern: /static/**
+
+  thymeleaf:
+    cache: true
+
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:~/TEST_DB;AUTO_SERVER=TRUE
+
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: create-drop
+
+  h2:
+    console:
+      path: /db/h2console
+      enabled: false

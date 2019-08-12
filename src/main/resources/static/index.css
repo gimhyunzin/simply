@@ -1,0 +1,6 @@
+input {width: 450px;height: 70px;padding: 5px 10px 5px 10px;font-size: 20px;}
+.bd-dotted {border: dotted 2px slategrey;}
+.bd-solid {border: solid 1px slategrey;}
+.al-center {text-align: center;}
+.card-header {background-color: lightblue;}
+.table th {background-color: lightblue;}
