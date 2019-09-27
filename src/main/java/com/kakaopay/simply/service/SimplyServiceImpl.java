@@ -100,7 +100,7 @@ public class SimplyServiceImpl implements SimplyService {
         // 1) URL 체크
         UrlValidator validator = new UrlValidator(new String[] {"http", "https"});
         if (! validator.isValid(url)) {
-            log.info("invalid url : {}", url);
+            log.error("invalid url : {}", url);
             throw new IllegalArgumentException("올바르지 않은 URL 입니다.");
         }
 
