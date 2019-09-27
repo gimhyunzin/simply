@@ -119,6 +119,7 @@ public class SimplyServiceImpl implements SimplyService {
             sb.append(this.createRandomChar());
         }
 
+        // TODO: 성능 고려 필요
         // 이미 존재하면 다시 호출
         if (simplyRepository.existsByShortCode(sb.toString())) {
             log.info("already exist short-code : {}", sb.toString());
@@ -129,8 +130,10 @@ public class SimplyServiceImpl implements SimplyService {
         return sb.toString();
     }
 
+    // TODO: 알파벳 범위 합쳐보기
     private char createRandomChar() {
-        Ascii ascii = Ascii.values()[new Random().nextInt(Ascii.values().length)];
-        return (char) ((Math.random() * ascii.getRange()) + ascii.getMin());
+        Random random = new Random();
+        Ascii ascii = Ascii.values()[random.nextInt(Ascii.values().length)];
+        return (char) (random.nextInt(ascii.getRange()) + ascii.getMin());
     }
 }

@@ -1,4 +1,5 @@
 (function() {
+    // TODO: 클로저 구조로 변경 필요
 
     gridLinks();
 
